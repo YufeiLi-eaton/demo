@@ -7,7 +7,25 @@ updates:
   - package-ecosystem: npm
     directory: "/javascript"
     schedule:
-      interval: "weekly"
+      interval: "daily"
+      cronjob: "10 * * * *"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 0
+    groups:
+      npm-dependenices:
+        patterns:
+          - "lodash"
+          - "hot-formula-parser"
+        exlude-patterns:
+          - "hot-formula-parser"
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      security-dependencies:
+        applies-to: "security-updates"
+        patterns: "*"  
   - package-ecosystem: bundler
     directory: "/ruby"
     schedule:
